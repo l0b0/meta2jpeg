@@ -17,11 +17,11 @@ do
         exiv2 extract "$raw"
 
         name="${raw%.*}"
-        jpeg_exiv="${jpeg%.*}.exv"
-        mv "${raw%.*}.exv" "$jpeg_exiv"
+        exiv="${jpeg%.*}.exv"
+        mv "${raw%.*}.exv" "$exiv"
 
         echo "Copying metadata from $raw to $jpeg"
-        exiv2 insert "$jpeg_exiv"
-        rm -- "$jpeg_exiv"
+        exiv2 insert "$exiv"
+        rm -- "$exiv"
     done
 done
