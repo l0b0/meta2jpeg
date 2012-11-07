@@ -14,14 +14,13 @@ do
     fi
     for jpeg in "${jpegs[@]}"
     do
-        exiv2 extract "$raw"
+        exiv2 -v extract "$raw"
 
         name="${raw%.*}"
         exiv="${jpeg%.*}.exv"
         mv "${raw%.*}.exv" "$exiv"
 
-        echo "Copying metadata from $raw via $exiv to $jpeg"
-        exiv2 insert "$jpeg"
+        exiv2 -v insert "$jpeg"
         rm -- "$exiv"
     done
 done
