@@ -20,7 +20,7 @@ do
         exiv="${jpeg%.*}.exv"
         mv "${raw%.*}.exv" "$exiv"
 
-        echo "Copying metadata from $raw to $jpeg"
+        echo "Copying metadata from $raw via $exiv to $jpeg"
         exiv2 insert "$exiv"
         rm -- "$exiv"
     done
